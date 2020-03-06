@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="http://github.org/chengzhx76/schema/simple"
+            xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns:beans="http://www.springframework.org/schema/beans"
+            targetNamespace="http://github.org/chengzhx76/schema/simple"
+            elementFormDefault="qualified"
+            attributeFormDefault="unqualified">
+
+  <xsd:import namespace="http://www.springframework.org/schema/beans"/>
+
+  <xsd:element name="people">
+    <xsd:complexType>
+      <xsd:complexContent>
+        <xsd:extension base="beans:identifiedType">
+          <xsd:attribute name="name" type="xsd:string" use="required"/>
+          <xsd:attribute name="age" type="xsd:int"/>
+          <xsd:attribute name="sex" type="xsd:int" use="optional" default="1"/>
+        </xsd:extension>
+      </xsd:complexContent>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>
