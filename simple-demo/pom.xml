@@ -15,6 +15,7 @@
     <module>simple-rpc-framework-core</module>
     <module>simple-spring-schema-demo</module>
     <module>simple-zookeeper-demo</module>
+      <module>simple-netty4-demo</module>
   </modules>
 
   <properties>
