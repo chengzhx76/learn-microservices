@@ -16,6 +16,7 @@
     <module>simple-spring-schema-demo</module>
     <module>simple-zookeeper-demo</module>
       <module>simple-netty4-demo</module>
+      <module>simple-jdk-demo</module>
   </modules>
 
   <properties>
