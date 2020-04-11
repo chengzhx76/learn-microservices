@@ -19,6 +19,9 @@ import java.util.concurrent.TimeUnit;
  * https://github.com/cosu/zookeeperdemo/blob/0e95c42338ff0ce54cb24f7f0fd8448fb2f9ff72/src/main/java/ro/cosu/ZookeeperRunner.java
  * Author: 光灿
  * Date: 2020/4/11
+ * ！！Dubbo 的用法
+ * https://github.com/apache/dubbo/blob/master/dubbo-remoting/dubbo-remoting-zookeeper/src/test/java/org/apache/dubbo/remoting/zookeeper/curator/CuratorZookeeperClientTest.java
+ *
  */
 public class EmbeddedZookeeper {
 
