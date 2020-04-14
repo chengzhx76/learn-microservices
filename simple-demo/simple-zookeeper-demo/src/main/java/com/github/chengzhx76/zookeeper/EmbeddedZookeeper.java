@@ -6,6 +6,7 @@ import org.apache.zookeeper.server.quorum.QuorumPeerConfig;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.nio.file.Files;
 import java.util.Properties;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.Executors;
@@ -35,6 +36,9 @@ public class EmbeddedZookeeper {
 
 
     private void start() throws IOException, QuorumPeerConfig.ConfigException {
+
+//        Files.createTempDirectory("");
+
         Properties properties = new Properties();
         InputStream stream = getClass().getResourceAsStream("/zoo.cfg");
         properties.load(stream);
