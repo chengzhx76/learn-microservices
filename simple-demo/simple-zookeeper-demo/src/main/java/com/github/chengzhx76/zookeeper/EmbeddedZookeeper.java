@@ -36,6 +36,7 @@ public class EmbeddedZookeeper {
 
     // Apache ZooKeeper 服务启动源码解释
     // https://www.ibm.com/developerworks/cn/opensource/os-cn-zookeeper-code/index.html
+    // cheng
     private void start() throws IOException, QuorumPeerConfig.ConfigException {
 
 //        Files.createTempDirectory("");
