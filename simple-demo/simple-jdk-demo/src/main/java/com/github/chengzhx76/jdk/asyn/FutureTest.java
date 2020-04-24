@@ -30,6 +30,7 @@ public class FutureTest {
 
     public static void main(String[] args) throws ExecutionException, InterruptedException {
         System.out.println("before " + Thread.currentThread().getName());
+
         Future<String> future = threadPool.submit(() -> {
             System.out.println("after " + Thread.currentThread().getName());
             ToolUtils.await(10);
