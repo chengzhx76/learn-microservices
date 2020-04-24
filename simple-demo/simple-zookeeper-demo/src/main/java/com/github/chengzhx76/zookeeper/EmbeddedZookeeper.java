@@ -6,7 +6,6 @@ import org.apache.zookeeper.server.quorum.QuorumPeerConfig;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.nio.file.Files;
 import java.util.Properties;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.Executors;
@@ -35,6 +34,9 @@ public class EmbeddedZookeeper {
             Executors.defaultThreadFactory(), new ThreadPoolExecutor.AbortPolicy());
 
 
+    // Apache ZooKeeper 服务启动源码解释
+    // https://www.ibm.com/developerworks/cn/opensource/os-cn-zookeeper-code/index.html
+    // cheng
     private void start() throws IOException, QuorumPeerConfig.ConfigException {
 
 //        Files.createTempDirectory("");
