@@ -1,5 +1,7 @@
 package com.github.chengzhx76.jdk.lock;
 
+import com.github.chengzhx76.jdk.util.ToolUtils;
+
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
@@ -12,7 +14,7 @@ import java.util.concurrent.locks.ReentrantLock;
  */
 public class TestReentrantLock {
 
-    final Lock lock = new ReentrantLock(true);
+    final Lock lock = new ReentrantLock();
 
     public static void main(String[] args) {
         TestReentrantLock test = new TestReentrantLock();
@@ -26,21 +28,13 @@ public class TestReentrantLock {
 
     void testLock() {
         try {
+            System.out.println(Thread.currentThread().getName() + " 开始获取锁");
             lock.lock();
             System.out.println(Thread.currentThread().getName() + " 获取锁");
-            await(1);
+            ToolUtils.await(1);
         } finally {
             System.out.println(Thread.currentThread().getName() + " 释放锁");
             lock.unlock();
-        }
-    }
-
-
-    static void await(int time) {
-        try {
-            TimeUnit.SECONDS.sleep(time);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
         }
     }
 
