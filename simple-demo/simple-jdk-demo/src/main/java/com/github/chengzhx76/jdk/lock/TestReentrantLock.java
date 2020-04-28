@@ -14,6 +14,8 @@ import java.util.concurrent.locks.ReentrantLock;
  */
 public class TestReentrantLock {
 
+    // https://blog.csdn.net/L_BestCoder/article/details/79311648
+    // https://my.oschina.net/u/4108008/blog/3057243
     final Lock lock = new ReentrantLock();
 
     public static void main(String[] args) {
