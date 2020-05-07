@@ -20,7 +20,8 @@ public class TestCurator {
 
     private static void testCreate() throws Exception {
         CuratorFrameworkFactory.Builder builder = CuratorFrameworkFactory.builder()
-                .connectString("localhost:2181")
+//                .connectString("localhost:2181")
+                .connectString("180.76.183.68:2181")
                 .retryPolicy(new RetryNTimes(1, 1000))
                 .connectionTimeoutMs(1000);
         CuratorFramework client  = builder.build();
