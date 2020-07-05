@@ -17,18 +17,18 @@ import java.util.function.Function;
  */
 public class LeanSemaphore {
 
-    static ThreadPoolExecutor executor = new ThreadPoolExecutor(10, 10,
-            0, TimeUnit.MILLISECONDS, new SynchronousQueue<>(), new ThreadPoolExecutor.DiscardOldestPolicy());
+    public static void main(String[] args) throws InterruptedException {
+        Obj[] obj = {new Obj(), new Obj(), new Obj(), new Obj(), new Obj()};
 
-    public static void main(String[] args) {
-        Obj obj = new Obj();
-        ObjPool<Obj, String> pool = new ObjPool<>(5, obj);
+        ObjPool<Obj, String> pool = new ObjPool<>(obj);
 
         for (int i = 0; i < 10; i++) {
-            executor.execute(() -> {
+
+            Thread thread = new Thread(() -> {
                 String result = pool.exec(Obj::task);
                 System.out.println(result);
             });
+            thread.start();
         }
 
     }
@@ -42,12 +42,12 @@ class ObjPool<T, R> {
     //
     final Semaphore sem;
 
-    ObjPool(int size, T t) {
+    ObjPool(T[] ts) {
         pool = new Vector<>();
-        for (int i = 0; i<size; i++) {
-            pool.add(t);
+        for (int i = 0; i<ts.length; i++) { // 不同对象
+            pool.add(ts[i]);
         }
-        sem = new Semaphore(size);
+        sem = new Semaphore(ts.length);
     }
 
     // 利用对象池的对象，调用func

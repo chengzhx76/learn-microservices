@@ -19,6 +19,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>netty4-server-demo</module>
+        <module>netty4-udp-demo</module>
     </modules>
 
 
