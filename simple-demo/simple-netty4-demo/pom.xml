@@ -20,6 +20,7 @@
     <modules>
         <module>netty4-server-demo</module>
         <module>netty4-udp-demo</module>
+        <module>netty4-dns-demo</module>
     </modules>
 
 
