@@ -1,11 +1,14 @@
 package com.github.chengzhx76.netty4.client;
 
 import io.netty.bootstrap.Bootstrap;
-import io.netty.channel.Channel;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioSocketChannel;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 
 /**
  * @Description
@@ -15,7 +18,7 @@ import io.netty.channel.socket.nio.NioSocketChannel;
  */
 public class SimpleClient {
 
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) throws InterruptedException, IOException {
         EventLoopGroup group = new NioEventLoopGroup();
 
         try {
@@ -25,7 +28,25 @@ public class SimpleClient {
                     .handler(new SimpleClientInitializer());
 
             ChannelFuture future = bootstrap.connect("127.0.0.1", 8899);
-            future.channel().closeFuture().sync();
+            //future.addListener(new ChannelFutureListener() {
+            //    @Override
+            //    public void operationComplete(ChannelFuture future) throws Exception {
+            //        if (future.isSuccess()) {
+            //            ByteBuf buffer = Unpooled.copiedBuffer("Hello", Charset.defaultCharset());
+            //            ChannelFuture writeChannel = future.channel().writeAndFlush(buffer);
+            //        } else {
+            //            Throwable cause = future.cause();
+            //            cause.printStackTrace();
+            //        }
+            //    }
+            //});
+
+            BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+            for (;;) {
+                future.channel().writeAndFlush(reader.readLine());
+            }
+
+            //future.channel().closeFuture().sync();
         } finally {
             group.shutdownGracefully();
         }

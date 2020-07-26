@@ -2,20 +2,10 @@ package com.github.chengzhx76.consumer;
 
 import com.github.chengzhx76.dubbo.demo.DemoService;
 import org.apache.dubbo.config.ApplicationConfig;
-import org.apache.dubbo.config.MethodConfig;
 import org.apache.dubbo.config.ReferenceConfig;
 import org.apache.dubbo.config.RegistryConfig;
-import org.apache.dubbo.config.bootstrap.DubboBootstrap;
-import org.apache.dubbo.config.utils.ReferenceConfigCache;
-import org.apache.dubbo.rpc.RpcContext;
-import org.apache.dubbo.rpc.service.GenericService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.concurrent.CompletableFuture;
-import java.util.concurrent.ExecutionException;
 
 /**
  * Desc:
@@ -27,11 +17,11 @@ public class Application {
     private static final Logger logger = LoggerFactory.getLogger(Application.class);
 
     public static void main(String[] args) {
-        if (isClassic(args)) {
+        //if (isClassic(args)) {
             runWithRefer();
-        } else {
-            runWithBootstrap();
-        }
+        //} else {
+        //    runWithBootstrap();
+        //}
     }
 
     private static boolean isClassic(String[] args) {
@@ -39,9 +29,9 @@ public class Application {
     }
 
     private static void runWithBootstrap() {
-        ReferenceConfig<DemoService> reference = new ReferenceConfig<>();
-        reference.setInterface(DemoService.class);
-        reference.setTimeout(10000);
+        //ReferenceConfig<DemoService> reference = new ReferenceConfig<>();
+        //reference.setInterface(DemoService.class);
+        //reference.setTimeout(10000);
 //        reference.setGeneric("true"); // 声明为泛化接口 http://dubbo.apache.org/zh-cn/docs/user/demos/generic-reference.html
 //        reference.setAsync(true);
 
@@ -53,20 +43,19 @@ public class Application {
 //
 //        reference.setMethods(methods);
 
-        DubboBootstrap bootstrap = DubboBootstrap.getInstance();
-        bootstrap.application(new ApplicationConfig("dubbo-demo-api-consumer"))
-//                .registry(new RegistryConfig("zookeeper://127.0.0.1:2181"))
-                .registry(new RegistryConfig("zookeeper://180.76.183.68:2181"))
-                .reference(reference)
-                .start();
-
-        DemoService demoService = ReferenceConfigCache.getCache().get(reference);
+        //DubboBootstrap bootstrap = DubboBootstrap.getInstance();
+        //bootstrap.application(new ApplicationConfig("dubbo-demo-api-consumer"))
+        //        .registry(new RegistryConfig("zookeeper://180.76.183.68:2181"))
+        //        .reference(reference)
+        //        .start();
+        //
+        //DemoService demoService = ReferenceConfigCache.getCache().get(reference);
 
         /* ---------------------- sync invoke ----------------------- */
-        logger.info("begin-->");
-        String message = demoService.sayHello("dubbo");
-        logger.info("end-->");
-        System.out.println(message);
+        //logger.info("begin-->");
+        //String message = demoService.sayHello("dubbo");
+        //logger.info("end-->");
+        //System.out.println(message);
 
         /* ---------------------- RpcContext async invoke ------------ */
 

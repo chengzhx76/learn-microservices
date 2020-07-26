@@ -4,7 +4,6 @@ import com.github.chengzhx76.dubbo.demo.DemoService;
 import org.apache.dubbo.config.ApplicationConfig;
 import org.apache.dubbo.config.RegistryConfig;
 import org.apache.dubbo.config.ServiceConfig;
-import org.apache.dubbo.config.bootstrap.DubboBootstrap;
 
 import java.util.concurrent.CountDownLatch;
 
@@ -15,18 +14,18 @@ import java.util.concurrent.CountDownLatch;
  */
 public class Application {
     public static void main(String[] args) throws Exception {
-        if (isClassic(args)) {
+        //if (isClassic(args)) {
             startWithExport();
-        } else {
-            startWithBootstrap();
-        }
+        //} else {
+        //    startWithBootstrap();
+        //}
     }
 
     private static boolean isClassic(String[] args) {
         return args.length > 0 && "classic".equalsIgnoreCase(args[0]);
     }
 
-    private static void startWithBootstrap() {
+    /*private static void startWithBootstrap() {
         ServiceConfig<DemoServiceImpl> service = new ServiceConfig<>();
         service.setInterface(DemoService.class);
         service.setRef(new DemoServiceImpl());
@@ -37,7 +36,7 @@ public class Application {
                 .service(service)
                 .start()
                 .await();
-    }
+    }*/
 
     private static void startWithExport() throws InterruptedException {
         ServiceConfig<DemoServiceImpl> service = new ServiceConfig<>();

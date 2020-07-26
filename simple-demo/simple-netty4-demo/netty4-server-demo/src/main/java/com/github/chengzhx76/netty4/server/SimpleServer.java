@@ -4,7 +4,6 @@ import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelOption;
 import io.netty.channel.EventLoopGroup;
-import io.netty.channel.nio.NioEventLoop;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
 
@@ -14,8 +13,7 @@ import io.netty.channel.socket.nio.NioServerSocketChannel;
  * @Date 2020/3/10 18:41
  * @Version 3.0
  */
-public class Server {
-
+public class SimpleServer {
 
     public static void main(String[] args) throws InterruptedException {
         EventLoopGroup boosGroup = new NioEventLoopGroup(1);

@@ -12,7 +12,7 @@
     <module>dubbo-demo</module>
     <module>motan-demo</module>
     <module>simple-demo</module>
-      <module>spring-demo</module>
+    <module>spring-demo</module>
   </modules>
 
   <properties>
