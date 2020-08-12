@@ -33,13 +33,13 @@ public class FutureTest {
 
         Future<String> future = threadPool.submit(() -> {
             System.out.println("after " + Thread.currentThread().getName());
-            ToolUtils.await(10);
+            ToolUtils.await(1000);
             return "f-hello word";
         });
 
         System.out.println(future.get());
 
-        threadPool.execute(() -> System.out.println("tp-hello world"));
+       /* threadPool.execute(() -> System.out.println("tp-hello world"));
 
 
         FutureTask<String> futureTask = new FutureTask<>(() -> {
@@ -52,7 +52,9 @@ public class FutureTest {
 
         System.out.println(futureTask.get());
 
-        System.out.println("hello world");
+        System.out.println("hello world");*/
+
+
     }
 
 }

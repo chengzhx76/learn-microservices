@@ -4,6 +4,8 @@ import com.github.chengzhx76.dubbo.demo.DemoService;
 import org.apache.dubbo.config.ApplicationConfig;
 import org.apache.dubbo.config.ReferenceConfig;
 import org.apache.dubbo.config.RegistryConfig;
+import org.apache.dubbo.remoting.exchange.support.DefaultFuture;
+import org.apache.dubbo.remoting.exchange.support.header.HeaderExchangeClient;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

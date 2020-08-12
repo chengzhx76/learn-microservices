@@ -1,0 +1,5 @@
+test1=com.github.chengzhx76.dubbo.spi.activate.Test1Filter
+test2=com.github.chengzhx76.dubbo.spi.activate.Test2Filter
+test3=com.github.chengzhx76.dubbo.spi.activate.Test3Filter
+test4=com.github.chengzhx76.dubbo.spi.activate.Test4Filter
+test5=com.github.chengzhx76.dubbo.spi.activate.Test5Filter

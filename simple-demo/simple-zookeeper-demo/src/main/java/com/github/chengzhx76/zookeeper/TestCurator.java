@@ -28,12 +28,10 @@ public class TestCurator {
         client.getConnectionStateListenable().addListener(new ConnectionStateListener() {
             @Override
             public void stateChanged(CuratorFramework client, ConnectionState state) {
+                System.out.println("---------->" + state);
                 if (state == ConnectionState.LOST) {
-                    System.out.println("---------->" + state);
                 } else if (state == ConnectionState.CONNECTED) {
-                    System.out.println("---------->" + state);
                 } else if (state == ConnectionState.RECONNECTED) {
-                    System.out.println("---------->" + state);
                 }
             }
         });

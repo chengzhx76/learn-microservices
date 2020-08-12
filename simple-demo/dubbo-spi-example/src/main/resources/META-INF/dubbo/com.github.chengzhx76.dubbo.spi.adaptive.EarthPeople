@@ -1,0 +1,3 @@
+china=com.github.chengzhx76.dubbo.spi.adaptive.ChinaPeople
+america=com.github.chengzhx76.dubbo.spi.adaptive.AmericaPeople
+japan=com.github.chengzhx76.dubbo.spi.adaptive.JapanPeople
