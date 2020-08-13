@@ -19,6 +19,7 @@
     <module>dubbo-interface</module>
     <module>dubbo-api</module>
     <module>dubbo-dynamic-class</module>
+      <module>dubbo-configcenter</module>
   </modules>
 
   <build>
