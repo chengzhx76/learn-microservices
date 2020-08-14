@@ -41,6 +41,8 @@ public class TestCurator {
 
         //创建永久节点
         client.create().forPath("/cheng","/test data 2".getBytes());
+        client.checkExists().forPath("/cheng");
+
     }
 
 }

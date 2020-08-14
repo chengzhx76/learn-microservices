@@ -31,8 +31,8 @@ public class ZKTools {
 
     public static void generateDubboProperties() {
         generateDubboPropertiesForGlobal();
-        generateDubboPropertiesForProvider();
-        generateDubboPropertiesForConsumer();
+//        generateDubboPropertiesForProvider();
+//        generateDubboPropertiesForConsumer();
     }
 
     private static void initClient() {
@@ -42,13 +42,17 @@ public class ZKTools {
     }
 
     public static void generateDubboPropertiesForGlobal() {
-        String str = "dubbo.registry.address=zookeeper://" + zookeeperHost + ":2181\n" +
-                "dubbo.metadata-report.address=zookeeper://" + zookeeperHost + ":2181\n" +
-                "#global config for consumer\n" +
-                "dubbo.consumer.timeout=6000\n" +
-                "#global config for provider\n" +
-                "dubbo.protocol.port=20831\n" +
-                "dubbo.provider.id.timeout=5000";
+//        String str = "dubbo.registry.address=zookeeper://" + zookeeperHost + ":2181\n" +
+//                "dubbo.metadata-report.address=zookeeper://" + zookeeperHost + ":2181\n" +
+//                "#global config for consumer\n" +
+//                "dubbo.consumer.timeout=6000\n" +
+//                "#global config for provider\n" +
+//                "dubbo.protocol.port=20831\n" +
+//                "dubbo.provider.id.timeout=5000";
+        String str = "dubbo.registry.address=zookeeper://" + zookeeperHost + ":2181\n"
+                + "dubbo.registry.simplified=true\n"
+                + "dubbo.metadata-report.address=zookeeper://" + zookeeperHost + ":2181\n"
+                + "dubbo.application.qos.port=33333";
 
         System.out.println(str);
 
