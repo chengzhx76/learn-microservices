@@ -56,65 +56,89 @@ public class TestCompletableFuture {
                 try {
                     createTD = createTD();
                 } catch (Exception e) {
-                    System.out.println("throw createTD-> " + e.getMessage());
-                    throw new RuntimeException("throw createTD");
+                    System.err.println("throw createTD-> " + e.getMessage());
+                    throw new ServiceException("throw ServiceException.createTD");
                 }
+
+                createTD.whenComplete((val, ex) -> {
+                    if (ex != null) {
+                        System.err.println("createTD-whenComplete-ex-> " + val + " - " + ex.getMessage());
+                    } else {
+                        System.out.println("createTD-whenComplete-ex-> " + val + " - ex is null");
+                    }
+                });
 
                 CompletableFuture<String> installLM = installLM();
 
+                installLM.whenComplete((val, ex) -> {
+                    if (ex != null) {
+                        System.err.println("installLM-whenComplete-ex-> " + val + " - " + ex.getMessage());
+                    } else {
+                        System.out.println("installLM-whenComplete-ex-> " + val + " - ex is null");
+                    }
+                });
+
                 System.out.println("createTD-installLM-end===>" + LocalDateTime.now().toString());
-                createTD.thenAcceptBoth(installLM, Instantiate())
-                        .whenComplete((val, ex) -> {
-                            System.out.println("------------end-finish " + ex);
-                        })
-                        .exceptionally(ex -> {
-                            System.out.println("end-finish-exceptionally-ex-> " + ex);
-                            return null;
+                createTD.thenAcceptBoth(installLM, (__, ___) -> {
+                        CompletableFuture<Void> instantiateTD = Instantiate();
+                        instantiateTD.whenComplete((val, ex) -> {
+                            if (ex != null) {
+                                System.err.println("instantiateTD-whenComplete-ex-> " + val + " - " + ex.getMessage());
+                            } else {
+                                System.out.println("instantiateTD-whenComplete-ex-> " + val + " - ex is null");
+                            }
                         });
+                    })
+                    .whenComplete((val, ex) -> {
+                        if (ex != null) {
+                            System.err.println("end-finish-whenComplete-ex-> " + val + " - " + ex.getMessage());
+                        } else {
+                            System.out.println("end-finish-whenComplete-ex-> " + val + " - ex is null");
+                        }
+                    });
             }
         });
 
         // 总结：在谁那抛出的异常谁处理，谁包裹的谁处理
-
         startLM.whenComplete((val, ex) -> {
             if (ex != null) {
-            System.out.println("startLM-whenComplete-ex-> " + val + " - " + ex.getMessage());
+            System.err.println("startLM-whenComplete-ex-> " + val + " - " + ex.getMessage());
             } else {
                 System.out.println("startLM-whenComplete-ex-> " + val + " - ex is null");
             }
         });
 
-        startLM.exceptionally(ex -> {
+        tdLm.whenComplete((val, ex) -> {
+            if (ex != null) {
+                System.err.println("tdLm-whenComplete-ex-> " + val + " - " + ex.getMessage());
+
+                System.err.println("tdLm-whenComplete-ex-test1-> " + ex.getClass().getName());
+                System.err.println("tdLm-whenComplete-ex-test2-> " + ex.getCause().getClass().getName());
+
+            } else {
+                System.out.println("tdLm-whenComplete-ex-> " + val + " - ex is null");
+            }
+        });
+
+        /*startLM.exceptionally(ex -> {
             if (ex != null) {
                 System.out.println("startLM-exceptionally-ex-> " + ex.getMessage());
             } else {
                 System.out.println("startLM-exceptionally-ex-> ex is null");
             }
             return null;
-        });
-
-        tdLm.whenComplete((val, ex) -> {
-            if (ex != null) {
-            System.out.println("tdLm-whenComplete-ex-> " + val + " - " + ex.getMessage());
-            } else {
-                System.out.println("tdLm-whenComplete-ex-> " + val + " - ex is null");
-            }
-        });
-
-        tdLm.exceptionally(ex -> {
+        });*/
+        /*tdLm.exceptionally(ex -> {
             if (ex != null) {
                 System.out.println("tdLm-exceptionally-ex-> " + ex.getMessage());
             } else {
                 System.out.println("tdLm-exceptionally-ex-> ex is null");
             }
             return null;
-        });
+        });*/
 
         System.out.println("last===>" + LocalDateTime.now().toString());
-
-
 //        await(100000);
-
     }
 
     private static CompletableFuture<Boolean> startLm() {
@@ -134,7 +158,7 @@ public class TestCompletableFuture {
 
     private static CompletableFuture<String> createTD() {
         if (1 == 1) {
-//            throw new RuntimeException("createTD");
+            throw new RuntimeException("createTD");
         }
         return CompletableFuture.supplyAsync(() -> {
             if (1 == 1) {
@@ -162,7 +186,23 @@ public class TestCompletableFuture {
         });
     }
 
-    private static BiConsumer<String, String> Instantiate() {
+    private static CompletableFuture<Void> Instantiate() {
+        if (1 == 1) {
+//            throw new RuntimeException("Instantiate");
+        }
+        return CompletableFuture.runAsync(() -> {
+            if (1 == 1) {
+//                throw new RuntimeException("inner-Instantiate");
+            }
+
+            System.out.println("实例化 " + Thread.currentThread().getName());
+            await(4);
+            System.out.println("实例化-finish");
+            System.out.println("end===>" + LocalDateTime.now().toString());
+        });
+    }
+
+    /*private static BiConsumer<String, String> Instantiate() {
         if (1 == 1) {
 //            throw new RuntimeException("Instantiate");
         }
@@ -177,7 +217,7 @@ public class TestCompletableFuture {
             System.out.println("实例化-finish");
             System.out.println("end===>" + LocalDateTime.now().toString());
         };
-    }
+    }*/
 
     private static BiConsumer<String, String> Instantiate = (channelId, ccId) -> {
 

@@ -12,8 +12,8 @@ import org.apache.dubbo.common.extension.ExtensionLoader;
 public class TestSpi {
     // 1.@Adaptive注解用在类上代表实现一个装饰类，通过 `getAdaptiveExtension()`方法直接获取
     // 2.@Adaptive注解用在扩展接口的方法上。表示该方法是一个自适应方法。Dubbo在为扩展点生成自适应实例时，
-    //   如果方法有@Adaptive注解，会为该方法生成对应的代码。方法内部会根据方法的参数，来决定使用哪个扩展。
-    //   如：@Adaptive({"p", "e"}) "p" 和 "e" 是 url 中的 key， 如果没指定则使用接口名 两个单词的转换成 "." EarthPeople=>earth.people
+    //   如果方法有@Adaptive注解，会为该方法生成对应的代码，没有@Adaptive注解则方法内部会抛出未实现异常。方法内部会根据方法的参数，来决定使用哪个扩展。
+    //   如：@Adaptive({"p", "e"}) "p" 和 "e" 是 url 中的 key， 如果没指定则使用接口名，两个单词的接口名转换成 "." EarthPeople=>earth.people
     //   如过 url 没指定 则直接获取 @SPI("china")中的china 和调用`getDefaultExtension()`效果一样，所以说url里的权重高些
     // 3.在类上有@Adaptive注解 在 url 中指定的就无效了
     // 结论：类上的@Adaptive > 方法上的@Adaptive > @SPI 注解
