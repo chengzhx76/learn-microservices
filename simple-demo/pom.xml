@@ -17,6 +17,7 @@
     <module>simple-zookeeper-demo</module>
     <module>simple-netty4-demo</module>
     <module>simple-jdk-demo</module>
+    <module>simple-jdk-other</module>
     <module>dubbo-spi-example</module>
   </modules>
 

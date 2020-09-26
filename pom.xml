@@ -13,6 +13,7 @@
     <module>motan-demo</module>
     <module>simple-demo</module>
     <module>spring-demo</module>
+    <module>simple-demo</module>
   </modules>
 
   <properties>
