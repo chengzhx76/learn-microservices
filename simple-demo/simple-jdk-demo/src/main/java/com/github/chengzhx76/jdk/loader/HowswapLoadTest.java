@@ -18,7 +18,7 @@ public class HowswapLoadTest {
     static ScheduledExecutorService scheduled = Executors.newScheduledThreadPool(1);
     public static void main(String[] args) {
 
-        scheduled.scheduleAtFixedRate(() -> {
+//        scheduled.scheduleAtFixedRate(() -> {
             try {
                 // 每次都创建出一个新的类加载器
                 CustomizeClassLoader hotSwapClsLoader = new CustomizeClassLoader(
@@ -27,7 +27,9 @@ public class HowswapLoadTest {
                         new String[]{"simple-jdk-other-1.0-SNAPSHOT.jar"}
                         );
 //                Class cls = hotSwapClsLoader.loadClass("Foo");
+//                Class<?> cls = Class.forName("Foo", true, hotSwapClsLoader);
                 Class<?> cls = Class.forName("Foo", true, hotSwapClsLoader);
+
                 Object foo = cls.newInstance();
 //                Method method = foo.getClass().getMethod("sayHello", new Class<?>[]{});
                 Method method = foo.getClass().getMethod("sayHi", new Class<?>[]{});
@@ -36,7 +38,7 @@ public class HowswapLoadTest {
                 e.printStackTrace();
             }
             System.out.println("======================> " + LocalDateTime.now());
-        }, 0, 5, TimeUnit.SECONDS);
+//        }, 0, 5, TimeUnit.SECONDS);
 
     }
 }

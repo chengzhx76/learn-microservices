@@ -20,7 +20,7 @@ public class CustomizeClassLoader extends ClassLoader {
 
 
     public CustomizeClassLoader(String basedir, String[] names) throws IOException {
-        super(null);
+//        super(null);
         this.basedir = basedir;
         this.dynaClsNames = new HashSet<>();
         load(names);
