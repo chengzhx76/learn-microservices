@@ -19,6 +19,7 @@
     <module>simple-jdk-demo</module>
     <module>simple-jdk-other</module>
     <module>dubbo-spi-example</module>
+    <module>simple-lib-demo</module>
   </modules>
 
   <properties>
