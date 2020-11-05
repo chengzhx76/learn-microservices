@@ -14,6 +14,7 @@
     <module>simple-demo</module>
     <module>spring-demo</module>
     <module>simple-demo</module>
+    <module>mybatis-demo</module>
   </modules>
 
   <properties>
