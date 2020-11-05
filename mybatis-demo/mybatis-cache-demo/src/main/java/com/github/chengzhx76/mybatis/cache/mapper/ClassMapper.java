@@ -9,5 +9,6 @@ import org.apache.ibatis.annotations.Param;
  * @Version 3.0
  */
 public interface ClassMapper {
+
     int updateClassName(@Param("name") String className, @Param("id") int id);
 }
