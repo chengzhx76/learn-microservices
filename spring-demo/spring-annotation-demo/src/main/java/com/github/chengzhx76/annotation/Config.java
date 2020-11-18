@@ -22,7 +22,8 @@ import org.springframework.context.annotation.Import;
  */
 //@Import({Cat.class})
 //@Import({Cat.class, MyImportSelector.class})
-@Import({Cat.class, MyImportSelector.class, MyImportBeanDefinitionRegistrar.class})
+@Import({MyImportSelector.class})
+//@Import({Cat.class, MyImportSelector.class, MyImportBeanDefinitionRegistrar.class})
 @Configuration
 public class Config {
 

@@ -13,15 +13,15 @@ public class AnnotationTest {
 
     public static void main(String[] args) {
         ApplicationContext context = new AnnotationConfigApplicationContext(Config.class);
-        Cat cat = context.getBean(Cat.class);
-        cat.sayHi();
+//        Cat cat = context.getBean(Cat.class);
+//        cat.sayHi();
         Dog dog = context.getBean(Dog.class);
         dog.sayHi();
         Sheep sheep = context.getBean(Sheep.class);
         sheep.sayHi();
-        Duck duck = context.getBean("duck", Duck.class);
-        duck.sayHi();
-        People people = context.getBean(People.class);
-        people.sayHi();
+//        Duck duck = context.getBean("duck", Duck.class);
+//        duck.sayHi();
+//        People people = context.getBean(People.class);
+//        people.sayHi();
     }
 }

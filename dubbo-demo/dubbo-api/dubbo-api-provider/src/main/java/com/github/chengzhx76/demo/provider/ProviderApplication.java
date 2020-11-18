@@ -14,7 +14,7 @@ import java.util.concurrent.CountDownLatch;
  * Author: 光灿
  * Date: 2020/3/4
  */
-public class Application {
+public class ProviderApplication {
     public static void main(String[] args) throws Exception {
         if (isClassic(args)) {
             startWithExport();

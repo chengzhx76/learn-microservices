@@ -30,7 +30,7 @@ public class EmbeddedZookeeper {
     // https://www.journaldev.com/1069/threadpoolexecutor-java-thread-pool-example-executorservice
     ThreadPoolExecutor executorPool = new ThreadPoolExecutor(1, 1, 10,
             TimeUnit.SECONDS,
-            new ArrayBlockingQueue<Runnable>(1),
+            new ArrayBlockingQueue<>(1),
             Executors.defaultThreadFactory(), new ThreadPoolExecutor.AbortPolicy());
 
 

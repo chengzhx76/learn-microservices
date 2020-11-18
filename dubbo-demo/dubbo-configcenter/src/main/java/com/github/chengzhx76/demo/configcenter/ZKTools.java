@@ -25,7 +25,7 @@ public class ZKTools {
         initClient();
     }
 
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) {
         generateDubboProperties();
     }
 

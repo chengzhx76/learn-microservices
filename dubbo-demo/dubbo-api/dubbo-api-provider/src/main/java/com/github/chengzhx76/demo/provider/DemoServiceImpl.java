@@ -19,10 +19,10 @@ public class DemoServiceImpl implements DemoService {
 
     @Override
     public String sayHello(String name) {
-        logger.info("begin-->");
-        await();
+//        logger.info("begin-->");
+//        await();
         logger.info("Hello " + name + ", request from consumer: " + RpcContext.getContext().getRemoteAddress());
-        logger.info("end-->");
+//        logger.info("end-->");
         return "Hello " + name + ", response from provider: " + RpcContext.getContext().getLocalAddress();
 
 //        final AsyncContext asyncContext = RpcContext.startAsync();

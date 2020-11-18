@@ -4,8 +4,7 @@ import com.github.chengzhx76.dubbo.demo.DemoService;
 import org.apache.dubbo.config.ApplicationConfig;
 import org.apache.dubbo.config.ReferenceConfig;
 import org.apache.dubbo.config.RegistryConfig;
-import org.apache.dubbo.remoting.exchange.support.DefaultFuture;
-import org.apache.dubbo.remoting.exchange.support.header.HeaderExchangeClient;
+import org.apache.dubbo.rpc.service.EchoService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -14,9 +13,9 @@ import org.slf4j.LoggerFactory;
  * Author: 光灿
  * Date: 2020/3/5
  */
-public class Application {
+public class ConsumerApplication {
 
-    private static final Logger logger = LoggerFactory.getLogger(Application.class);
+    private static final Logger logger = LoggerFactory.getLogger(ConsumerApplication.class);
 
     public static void main(String[] args) {
         //if (isClassic(args)) {
@@ -121,6 +120,11 @@ public class Application {
         reference.setInterface(DemoService.class);
         DemoService service = reference.get();
         String message = service.sayHello("dubbo");
+
+        EchoService echoService = (EchoService) service;
+        Object echo = echoService.$echo("hello dubbo");
+        System.out.println(echo);
+
         System.out.println(message);
     }
 
