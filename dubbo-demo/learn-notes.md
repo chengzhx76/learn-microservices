@@ -12,3 +12,6 @@ consumers：类型是ConcurrentMap<String, ConsumerModel>，key是serviceKey，s
 providers：类型是ConcurrentMap<String, ProviderModel>，key是serviceKey，serviceKey是由服务接口+“：”+group+“：”+version组成的，ProviderModel中也有serviceKey，除了serviceKey之外还有ServiceDescriptor、ServiceConfig对象以及对外提供服务的spring bean对象。在服务端启动暴露服务的时候，dubbo会调用ServiceConfig的doExportUrls方法，在doExportUrls方法里面调用ServiceRepository.registerProvider方法，该方法会创建ProviderModel对象，并将其注册到ServiceRepository中。之后，dubbo可以访问该providers属性，获取所有服务端发布的服务信息。
 
 在服务注册阶段提前生成 ServiceDescriptor 和 MethodDescriptor，以减少 RPC 调用阶段计算 Service 原信息带来的资源消耗。
+
+### Dubbo中JavaAssist的Wrapper.getWrapper生成代理分析
+https://segmentfault.com/a/1190000020592022
