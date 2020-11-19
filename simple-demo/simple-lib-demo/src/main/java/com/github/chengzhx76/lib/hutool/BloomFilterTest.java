@@ -1,4 +1,4 @@
-package com.github.chengzhx76.lib;
+package com.github.chengzhx76.lib.hutool;
 
 import cn.hutool.bloomfilter.BitMapBloomFilter;
 
