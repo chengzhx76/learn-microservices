@@ -20,6 +20,8 @@
     <module>simple-jdk-other</module>
     <module>dubbo-spi-example</module>
     <module>simple-lib-demo</module>
+    <module>simple-nacos</module>
+    <module>simple-tomcat</module>
   </modules>
 
   <properties>

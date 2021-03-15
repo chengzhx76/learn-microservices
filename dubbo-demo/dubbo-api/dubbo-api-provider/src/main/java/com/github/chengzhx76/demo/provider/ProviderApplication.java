@@ -7,6 +7,8 @@ import org.apache.dubbo.config.RegistryConfig;
 import org.apache.dubbo.config.ServiceConfig;
 import org.apache.dubbo.config.bootstrap.DubboBootstrap;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.CountDownLatch;
 
 /**
@@ -33,12 +35,17 @@ public class ProviderApplication {
         service.setRef(new DemoServiceImpl());
 
         DubboBootstrap bootstrap = DubboBootstrap.getInstance();
-        ConfigCenterConfig configCenter = new ConfigCenterConfig();
-        configCenter.setAddress("zookeeper://127.0.0.1:2181");
+        List<ConfigCenterConfig> configCenters = new ArrayList<>();
+        ConfigCenterConfig zkConfigCenter = new ConfigCenterConfig();
+        zkConfigCenter.setAddress("zookeeper://127.0.0.1:2181");
+        configCenters.add(zkConfigCenter);
+        ConfigCenterConfig zk2ConfigCenter = new ConfigCenterConfig();
+        zk2ConfigCenter.setAddress("zookeeper://127.0.0.2:2182");
+        configCenters.add(zk2ConfigCenter);
         bootstrap.application(new ApplicationConfig("dubbo-demo-api-provider"))
 //                .registry(new RegistryConfig("zookeeper://180.76.183.68:2181"))
 //                .registry(new RegistryConfig("zookeeper://127.0.0.1:2181"))
-                .configCenter(configCenter)
+                .configCenters(configCenters)
                 .service(service)
                 .start()
                 .await();

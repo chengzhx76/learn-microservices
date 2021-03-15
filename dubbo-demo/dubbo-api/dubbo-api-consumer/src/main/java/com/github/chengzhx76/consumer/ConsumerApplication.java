@@ -2,8 +2,11 @@ package com.github.chengzhx76.consumer;
 
 import com.github.chengzhx76.dubbo.demo.DemoService;
 import org.apache.dubbo.config.ApplicationConfig;
+import org.apache.dubbo.config.MetadataReportConfig;
 import org.apache.dubbo.config.ReferenceConfig;
 import org.apache.dubbo.config.RegistryConfig;
+import org.apache.dubbo.config.utils.ReferenceConfigCache;
+import org.apache.dubbo.metadata.definition.model.FullServiceDefinition;
 import org.apache.dubbo.rpc.service.EchoService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -118,7 +121,10 @@ public class ConsumerApplication {
         reference.setApplication(new ApplicationConfig("dubbo-demo-api-consumer"));
         reference.setRegistry(new RegistryConfig("zookeeper://127.0.0.1:2181"));
         reference.setInterface(DemoService.class);
-        DemoService service = reference.get();
+        // http://dubbo.apache.org/zh/docs/v2.7/user/examples/reference-config-cache/
+        ReferenceConfigCache cache = ReferenceConfigCache.getCache();
+//        DemoService service = reference.get();
+        DemoService service = cache.get(reference);
         String message = service.sayHello("dubbo");
 
         EchoService echoService = (EchoService) service;
@@ -126,6 +132,7 @@ public class ConsumerApplication {
         System.out.println(echo);
 
         System.out.println(message);
+
     }
 
 }
