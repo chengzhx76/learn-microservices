@@ -1,6 +1,7 @@
 package com.github.chengzhx76.demo.provider;
 
 import com.github.chengzhx76.dubbo.demo.DemoService;
+import org.apache.dubbo.common.utils.ReflectUtils;
 import org.apache.dubbo.config.ApplicationConfig;
 import org.apache.dubbo.config.ConfigCenterConfig;
 import org.apache.dubbo.config.RegistryConfig;
@@ -39,9 +40,9 @@ public class ProviderApplication {
         ConfigCenterConfig zkConfigCenter = new ConfigCenterConfig();
         zkConfigCenter.setAddress("zookeeper://127.0.0.1:2181");
         configCenters.add(zkConfigCenter);
-        ConfigCenterConfig zk2ConfigCenter = new ConfigCenterConfig();
+        /*ConfigCenterConfig zk2ConfigCenter = new ConfigCenterConfig();
         zk2ConfigCenter.setAddress("zookeeper://127.0.0.2:2182");
-        configCenters.add(zk2ConfigCenter);
+        configCenters.add(zk2ConfigCenter);*/
         bootstrap.application(new ApplicationConfig("dubbo-demo-api-provider"))
 //                .registry(new RegistryConfig("zookeeper://180.76.183.68:2181"))
 //                .registry(new RegistryConfig("zookeeper://127.0.0.1:2181"))

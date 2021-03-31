@@ -8,10 +8,10 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-@Controller
+//@Controller
 public class HelloWorldController {
 
-    @RequestMapping("index")
+    /*@RequestMapping("index")
     public String index(HttpServletRequest request, HttpSession session) {
         System.out.println("------------------");
         return "index";
@@ -24,5 +24,5 @@ public class HelloWorldController {
         response.setContentType("application/json");
         response.getWriter().println("HelloWorld");
         response.getWriter().flush();
-    }
+    }*/
 }
