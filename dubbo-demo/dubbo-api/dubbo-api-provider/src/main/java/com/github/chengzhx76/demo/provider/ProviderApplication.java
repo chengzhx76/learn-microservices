@@ -1,7 +1,6 @@
 package com.github.chengzhx76.demo.provider;
 
 import com.github.chengzhx76.dubbo.demo.DemoService;
-import org.apache.dubbo.common.utils.ReflectUtils;
 import org.apache.dubbo.config.ApplicationConfig;
 import org.apache.dubbo.config.ConfigCenterConfig;
 import org.apache.dubbo.config.RegistryConfig;
