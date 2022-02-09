@@ -3,6 +3,8 @@
 target
 .idea
 *.iml
-nio_write.txt
 #rebel.xml
 node_modules
+
+nio_write.txt
+*/log.*

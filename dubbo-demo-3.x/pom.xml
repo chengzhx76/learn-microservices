@@ -21,6 +21,7 @@
     <module>dubbo-interface-3.x</module>
   </modules>
 
+
   <dependencies>
     <dependency>
       <groupId>org.apache.dubbo</groupId>
