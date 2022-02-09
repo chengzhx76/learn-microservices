@@ -2,6 +2,9 @@ package com.github.chengzhx76.lib.hutool;
 
 import cn.hutool.cache.impl.LFUCache;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * @Description
  * @Author admin
@@ -13,6 +16,9 @@ public class CacheTest {
     public static void main(String[] args) {
 
         LFUCache<String, String> cache = new LFUCache<>(16);
+
+        Map<String, String> map = new HashMap<>();
+//        map.containsKey()
 
     }
 

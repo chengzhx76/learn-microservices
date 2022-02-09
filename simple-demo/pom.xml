@@ -22,6 +22,7 @@
     <module>simple-lib-demo</module>
     <module>simple-nacos</module>
     <module>simple-tomcat</module>
+    <module>dubbo-timewheel-example</module>
   </modules>
 
   <properties>
