@@ -7,4 +7,5 @@ target
 node_modules
 
 nio_write.txt
+/version-2/*
 */log.*
