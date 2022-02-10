@@ -19,6 +19,7 @@
 
   <artifactId>dubbo-api</artifactId>
   <packaging>pom</packaging>
+
   <modules>
     <module>dubbo-api-provider</module>
     <module>dubbo-api-consumer</module>
