@@ -1,4 +1,4 @@
-package com.github.chengzhx76.consumer;
+package com.github.chengzhx76.demo.consumer;
 
 import com.github.chengzhx76.dubbo.demo.DemoService;
 import org.apache.dubbo.config.ApplicationConfig;

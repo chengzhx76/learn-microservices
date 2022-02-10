@@ -11,17 +11,48 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <java.version>1.8</java.version>
+    <slf4j.version>1.7.25</slf4j.version>
+    <!--<dubbo.version>2.7.1</dubbo.version>-->
+    <dubbo.version>2.7.5</dubbo.version>
   </properties>
 
   <artifactId>dubbo-demo</artifactId>
   <packaging>pom</packaging>
   <modules>
-    <module>dubbo-interface</module>
     <module>dubbo-api</module>
+    <module>dubbo-interface</module>
     <module>dubbo-dynamic-class</module>
     <module>dubbo-configcenter</module>
     <module>dubbo-unit-test</module>
   </modules>
+
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>${project.groupId}</groupId>
+        <artifactId>dubbo-interface</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>${project.groupId}</groupId>
+        <artifactId>dubbo-dynamic-class</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.dubbo</groupId>
+        <artifactId>dubbo</artifactId>
+        <version>${dubbo.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.dubbo</groupId>
+        <artifactId>dubbo-dependencies-bom</artifactId>
+        <version>${dubbo.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
 
   <build>
     <plugins>
