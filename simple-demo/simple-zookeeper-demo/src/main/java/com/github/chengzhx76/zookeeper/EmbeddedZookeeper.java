@@ -25,13 +25,12 @@ import java.util.concurrent.TimeUnit;
  */
 public class EmbeddedZookeeper {
 
-    private ZooKeeperServerMain zookeeperServer;
 
     // https://www.journaldev.com/1069/threadpoolexecutor-java-thread-pool-example-executorservice
-    ThreadPoolExecutor executorPool = new ThreadPoolExecutor(1, 1, 10,
-            TimeUnit.SECONDS,
-            new ArrayBlockingQueue<>(1),
-            Executors.defaultThreadFactory(), new ThreadPoolExecutor.AbortPolicy());
+//    ThreadPoolExecutor executorPool = new ThreadPoolExecutor(1, 1, 10,
+//            TimeUnit.SECONDS,
+//            new ArrayBlockingQueue<>(1),
+//            Executors.defaultThreadFactory(), new ThreadPoolExecutor.AbortPolicy());
 
 
     // Apache ZooKeeper 服务启动源码解释
@@ -49,18 +48,22 @@ public class EmbeddedZookeeper {
         quorumConfig.parseProperties(properties);
         stream.close();
 
-        zookeeperServer = new ZooKeeperServerMain();
+        ZooKeeperServerMain zookeeperServer = new ZooKeeperServerMain();
         ServerConfig serverConfig = new ServerConfig();
         serverConfig.readFrom(quorumConfig);
 
-        executorPool.execute(() -> {
+        /*executorPool.execute(() -> {
             try {
                 zookeeperServer.runFromConfig(serverConfig);
             } catch (IOException e) {
                 e.printStackTrace();
             }
-        });
+        });*/
 
+
+        zookeeperServer.runFromConfig(serverConfig);
+
+        System.in.read();
 
     }
 

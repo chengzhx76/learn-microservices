@@ -1,8 +1,6 @@
 package com.github.chengzhx76.jdk.threadpool;
 
-import java.util.concurrent.SynchronousQueue;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
+import java.util.concurrent.*;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
@@ -18,7 +16,8 @@ public class TestThreadPool {
             0, TimeUnit.MILLISECONDS, new SynchronousQueue<>(), new ThreadPoolExecutor.DiscardOldestPolicy());
 
     public static void main(String[] args) {
-        base();
+//        base();
+        testScheduled();
     }
 
     private static void base() {
@@ -44,4 +43,21 @@ public class TestThreadPool {
     private static int runStateOf(int c)     { return c & ~CAPACITY; }
     private static int workerCountOf(int c)  { return c & CAPACITY; }
     private static int ctlOf(int rs, int wc) { return rs | wc; }
+
+
+    private static void testScheduled() {
+        final ScheduledExecutorService retryExecutor =
+                Executors.newScheduledThreadPool(0, Executors.defaultThreadFactory());
+        final AtomicInteger retryCounter = new AtomicInteger(0);
+
+        ScheduledFuture retryScheduledFuture = retryExecutor.scheduleWithFixedDelay(() -> {
+            System.out.println("i-> " + retryCounter.incrementAndGet());
+            if (retryCounter.get() == 10) {
+//                retryScheduledFuture.cancel(false);
+                retryExecutor.shutdown();
+            }
+        }, 0, 1, TimeUnit.SECONDS);
+    }
+
 }
+
