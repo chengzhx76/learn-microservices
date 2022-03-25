@@ -16,6 +16,7 @@
     <module>simple-demo</module>
     <module>mybatis-demo</module>
     <module>dubbo-demo-3.x</module>
+    <module>middleware-app</module>
   </modules>
 
   <properties>

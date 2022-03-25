@@ -1,4 +1,4 @@
-package com.github.chengzhx76.zookeeper;
+package com.github.chengzhx76.embedded.zookeeper;
 
 import org.apache.zookeeper.server.ServerConfig;
 import org.apache.zookeeper.server.ZooKeeperServerMain;
@@ -7,10 +7,6 @@ import org.apache.zookeeper.server.quorum.QuorumPeerConfig;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
-import java.util.concurrent.ArrayBlockingQueue;
-import java.util.concurrent.Executors;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
 
 /**
  * Desc: 嵌入式的 Zookeeper

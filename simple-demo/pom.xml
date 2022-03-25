@@ -14,14 +14,12 @@
   <modules>
     <module>simple-rpc-framework-core</module>
     <module>simple-spring-schema-demo</module>
-    <module>simple-zookeeper-demo</module>
     <module>simple-netty4-demo</module>
     <module>simple-jdk-demo</module>
     <module>simple-jdk-other</module>
     <module>dubbo-spi-example</module>
     <module>simple-lib-demo</module>
     <module>simple-nacos</module>
-    <module>simple-tomcat</module>
     <module>dubbo-timewheel-example</module>
   </modules>
 
@@ -33,30 +31,22 @@
   </properties>
 
   <dependencyManagement>
-    <dependencies>
-      <dependency>
-        <groupId>junit</groupId>
-        <artifactId>junit</artifactId>
-        <version>${junit.version}</version>
-        <scope>test</scope>
-      </dependency>
-      <dependency>
-        <groupId>org.apache.dubbo</groupId>
-        <artifactId>dubbo-dependencies-bom</artifactId>
-        <version>${dubbo.version}</version>
-        <type>pom</type>
-        <scope>import</scope>
-      </dependency>
-    </dependencies>
-  </dependencyManagement>
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>${junit.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.dubbo</groupId>
+      <artifactId>dubbo-dependencies-bom</artifactId>
+      <version>${dubbo.version}</version>
+      <type>pom</type>
+      <scope>import</scope>
+    </dependency>
+  </dependencies>
+</dependencyManagement>
 
-  <build>
-      <plugins>
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-compiler-plugin</artifactId>
-        </plugin>
-      </plugins>
-  </build>
 
 </project>

@@ -1,4 +1,4 @@
-package com.github.chengzhx76.zookeeper;
+package com.github.chengzhx76.embedded.zookeeper;
 
 import org.apache.curator.framework.CuratorFramework;
 import org.apache.curator.framework.CuratorFrameworkFactory;
