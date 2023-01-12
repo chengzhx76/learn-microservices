@@ -57,22 +57,28 @@ public class ReadWordTest {
                         && !StrUtil.equals(firstLetter, "答")) {
 
                     String[] answers = line.split("[a-zA-Z]");
-                    for (int i = 0; i <answers.length ; i++) {
-                        if (!StrUtil.isBlank(answers[i])) {
+                    if (answers.length > 2) {
+                        int j = 0;
+                        for (int i = 0; i <answers.length ; i++) {
                             String _answer = answers[i];
-                            String prefix = "";
-                            if (i == 0) {
-                                prefix = "A";
-                            } else if (i == 1) {
-                                prefix = "B";
-                            } else if (i == 2) {
-                                prefix = "C";
-                            } else if (i == 3) {
-                                prefix = "D";
+                            if (!StrUtil.isBlank(_answer)) {
+                                String prefix = "";
+                                if (j == 0) {
+                                    prefix = "A";
+                                } else if (j == 1) {
+                                    prefix = "B";
+                                } else if (j == 2) {
+                                    prefix = "C";
+                                } else if (j == 3) {
+                                    prefix = "D";
+                                }
+                                _answer = StrUtil.trim(_answer);
+                                options.add(prefix + _answer);
+                                j++;
                             }
-                            _answer = StrUtil.trim(_answer);
-                            options.add(prefix + _answer);
                         }
+                    } else {
+                        options.add(line);
                     }
 
                 } else if (StrUtil.equals(firstLetter, "答")) {
