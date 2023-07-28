@@ -9,6 +9,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * @author: Cheng
  * @create: 2021-11-29
+ * https://www.jianshu.com/p/2093fb93fe19
  **/
 public class Main {
 
@@ -21,6 +22,7 @@ public class Main {
 
     ticksPerWheel
     就是轮子一共有多个格子，即要多少个tick才能走完这个wheel一圈。
+
      */
 
     static String pattern = "HH:mm:ss";

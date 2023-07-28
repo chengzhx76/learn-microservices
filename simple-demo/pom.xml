@@ -21,6 +21,7 @@
     <module>simple-lib-demo</module>
     <module>simple-nacos</module>
     <module>dubbo-timewheel-example</module>
+    <module>simple-tls</module>
   </modules>
 
   <properties>
