@@ -17,10 +17,8 @@
     <module>simple-netty4-demo</module>
     <module>simple-jdk-demo</module>
     <module>simple-jdk-other</module>
-    <module>dubbo-spi-example</module>
     <module>simple-lib-demo</module>
     <module>simple-nacos</module>
-    <module>dubbo-timewheel-example</module>
     <module>simple-tls</module>
   </modules>
 

@@ -48,10 +48,31 @@ keytool -keystore client.truststore -keypass 111111 -storepass 111111 -alias cli
 
 keytool -importkeystore -srckeystore client.keystore -srcstoretype JKS -deststoretype PKCS12 -destkeystore client.p12
 
+=======================================================================
+https://blog.51cto.com/remotedev/5750136
+
+keytool -genkey -alias tomcathttps -keypass 123456 -keyalg RSA -keysize 2048 -validity 365 -keystore  metrox.p12
+
+-alias : 证书别名
+
+-keypass:证书密码
+
+-keyalg:证书算法
+
+-keysize:证书容量
+
+-validity:证书有效期天数
+
+-keysote: 证书保存名
+
+-genkey:生成证书文件
+
+=======================================================================
 
 
 
-keytool -importcert -alias vp0ca -file ca.crt -storetype jks -keystore caKeyStore.keystore
+
+keytool -importcert -alias vp0ca -file ca.crt -storetype jks -keystore caKeyStore.keystore // 生成 ca 受信
 
 ## .keystore转.jks
 
@@ -63,3 +84,58 @@ keytool -v -importkeystore -srckeystore caKeyStore.p12 -srcstoretype PKCS12 -des
 
 
 openssl pkcs12 -export -in server.crt -out clientKeyStore.p12 -inkey server.key -name server
+
+
+=========================================================================================
+gm-java
+
+keytool -importcert -alias umfca -file ca-gm-cert.crt -storetype jks -keystore caKeyStore.keystore // 生成 ca 受信
+
+## .keystore转.jks
+
+### 先转成.p12
+keytool -importkeystore -srckeystore caKeyStore.keystore -srcstoretype JKS -deststoretype PKCS12 -destkeystore caKeyStore.p12
+
+### 后把.p12转成.jks
+keytool -v -importkeystore -srckeystore caKeyStore.p12 -srcstoretype PKCS12 -destkeystore caKeyStore.jks -deststoretype JKS
+
+
+openssl pkcs12 -export -in server.crt -out clientKeyStore.p12 -inkey server.key -name server
+
+
+=========================================================================================
+
+=========================================================================================
+gm-java-test
+
+
+openssl genpkey -algorithm EC -pkeyopt ec_paramgen_curve:sm2p256v1 -out ca-gm-key.pem
+openssl req -x509 -new -nodes -key ca-gm-key.pem -subj "/CN=myca.com" -days 5000 -out ca-gm-cert.crt
+
+keytool -importcert -alias umfca -file ca-gm-cert.crt -storetype jks -keystore caKeyStore.keystore
+
+
+openssl genrsa -out ca.key 2048
+openssl req -new -x509 -days 3650 -key ca.key -out ca.crt
+
+
+keytool -importcert -alias umfca -file ca.crt -storetype jks -keystore caKeyStore.keystore // 生成 ca 受信
+
+## .keystore转.jks
+
+### 先转成.p12
+keytool -importkeystore -srckeystore caKeyStore.keystore -srcstoretype JKS -deststoretype PKCS12 -destkeystore caKeyStore.p12
+
+### 后把.p12转成.jks
+keytool -v -importkeystore -srckeystore caKeyStore.p12 -srcstoretype PKCS12 -destkeystore caKeyStore.jks -deststoretype JKS
+
+
+openssl pkcs12 -export -in server.crt -out clientKeyStore.p12 -inkey server.key -name server
+
+
+=========================================================================================
+
+https://developer.aliyun.com/article/867410
+
+
+https://github.com/guanzhi/GmSSL/issues/370
