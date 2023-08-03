@@ -34,6 +34,12 @@ import com.aliyun.gmsse.GMProvider;
  * @create: 2023-08-01
  **/
 public class Client {
+
+
+    public static void main(String[] args) throws Exception {
+        new Client().testServer();
+    }
+
     public static Runnable runServer(final SSLServerSocket ss) {
         return new Runnable() {
             @Override
@@ -69,8 +75,7 @@ public class Client {
     }
 
 //    @Test
-    public void testServer() throws NoSuchAlgorithmException, KeyStoreException, CertificateException,
-            IOException, KeyManagementException, InterruptedException, URISyntaxException, UnrecoverableKeyException, InvalidKeySpecException {
+    public void testServer() throws Exception {
         GMProvider provider = new GMProvider();
         SSLContext sc = SSLContext.getInstance("TLS", provider);
 
@@ -107,6 +112,9 @@ public class Client {
         HttpsURLConnection conn = (HttpsURLConnection) serverUrl.openConnection();
         conn.setSSLSocketFactory(ssf);
         conn.setRequestMethod("GET");
+
+        System.out.println("======ResponseCode=========> " + conn.getResponseCode());
+        System.out.println("======CipherSuite=========> " + conn.getCipherSuite());
 //        Assert.assertEquals(200, conn.getResponseCode());
 //        Assert.assertEquals("ECC-SM2-WITH-SM4-SM3", conn.getCipherSuite());
 
@@ -120,6 +128,9 @@ public class Client {
             buffer.append(line);
         }
 //        Assert.assertEquals("<!DOCTYPE html>Hi.", buffer.toString());
+
+        System.out.println("========toString=======> " + buffer);
+
         connInputStream.close();
         // 中断服务线程
         thread.interrupt();

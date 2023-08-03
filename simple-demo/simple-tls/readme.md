@@ -139,3 +139,18 @@ https://developer.aliyun.com/article/867410
 
 
 https://github.com/guanzhi/GmSSL/issues/370
+
+## 转换java密钥库错误
+https://github.com/guanzhi/GmSSL/issues/370
+
+## 如何在支持GM的情况下兼容常规SSL
+https://github.com/liuguly/gm-hr/issues/1
+
+## JAVA 支持gmssl生成的证书加载吗
+https://github.com/guanzhi/GmSSL/issues/1080
+
+## java 读取证书，生成的.p12文件转换jks时提示密钥不正确
+https://github.com/guanzhi/GmSSL/issues/1285
+
+## 国密SSL VPN握手抓包分析
+https://www.jianshu.com/p/5435803d2ae7

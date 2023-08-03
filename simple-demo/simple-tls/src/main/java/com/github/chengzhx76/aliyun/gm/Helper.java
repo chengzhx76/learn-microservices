@@ -24,7 +24,7 @@ import org.bouncycastle.jce.provider.BouncyCastleProvider;
  * @create: 2023-08-01
  **/
 public class Helper {
-    public static X509Certificate loadCertificate(String path) throws KeyStoreException, CertificateException, FileNotFoundException {
+    public static X509Certificate loadCertificate(String path) throws Exception {
         BouncyCastleProvider bc = new BouncyCastleProvider();
         CertificateFactory cf = CertificateFactory.getInstance("X.509", bc);
         InputStream is = Helper.class.getClassLoader().getResourceAsStream(path);
@@ -32,7 +32,7 @@ public class Helper {
         return cert;
     }
 
-    public static PrivateKey loadPrivateKey(String path) throws IOException, NoSuchAlgorithmException, InvalidKeySpecException {
+    public static PrivateKey loadPrivateKey(String path) throws Exception {
         InputStream is = Helper.class.getClassLoader().getResourceAsStream(path);
         InputStreamReader inputStreamReader = new InputStreamReader(is);
         BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
