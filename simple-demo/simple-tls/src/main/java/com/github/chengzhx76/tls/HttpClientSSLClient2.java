@@ -33,11 +33,11 @@ import java.util.Map;
  **/
 public class HttpClientSSLClient2 {
     // 客户端证书路径，用了本地绝对路径，需要修改
-    private final static String CLIENT_CERT_FILE = "D:\\idea-workspace\\learn-microservices\\simple-demo\\simple-tls\\src\\main\\resources\\certs\\go\\client.p12";
+    private final static String CLIENT_CERT_FILE = "D:\\idea-workspace\\learn-microservices\\simple-demo\\simple-tls\\src\\main\\resources\\tls\\go\\client.p12";
     // 客户端证书密码
     private final static String CLIENT_PWD = "111111";
     // 信任库路径，即keytool生成的那个自定义名称的库文件
-    private final static String TRUST_STRORE_FILE = "D:\\idea-workspace\\learn-microservices\\simple-demo\\simple-tls\\src\\main\\resources\\certs\\go\\client.truststore";
+    private final static String TRUST_STRORE_FILE = "D:\\idea-workspace\\learn-microservices\\simple-demo\\simple-tls\\src\\main\\resources\\tls\\go\\client.truststore";
     // 信任库密码，即keytool时的密码
     private final static String TRUST_STORE_PWD = "111111";
 

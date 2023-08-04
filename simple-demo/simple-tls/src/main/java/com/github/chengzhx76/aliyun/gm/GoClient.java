@@ -21,14 +21,19 @@ import java.util.concurrent.TimeUnit;
  * @create: 2023-08-01
  **/
 public class GoClient {
-    private static final String caCert = "sm2/go2/ca-gm-cert.crt";
-//    private static final String caCert = "sm2/chain-ca.crt";
+//    private static final String caCert = "sm2/go/ca-gm-cert.crt";
+    private static final String caCert = "D:\\golang\\src\\learn-microservices-go\\gmtls\\certs2\\ca-gm-cert.crt";
 
-    private static final String signKey = "sm2/go2/client-gm-auth-key.pem";
-    private static final String signCert = "sm2/go2/client-gm-auth-cert.crt";
+    private static final String signKey = "D:\\golang\\src\\learn-microservices-go\\gmtls\\certs2\\client-gm-auth-key.pem";
+    private static final String signCert = "D:\\golang\\src\\learn-microservices-go\\gmtls\\certs2\\client-gm-auth-cert.crt";
 
-    private static final String encKey = "sm2/go2/client-gm-auth2-key.pem";
-    private static final String encCert = "sm2/go2/client-gm-auth2-cert.crt";
+//    private static final String signKey = "sm2/go/client-gm-auth-key.pem";
+//    private static final String signCert = "sm2/go/client-gm-auth-cert.crt";
+
+//    private static final String encKey = "sm2/go/client-gm-auth2-key.pem";
+//    private static final String encCert = "sm2/go/client-gm-auth2-cert.crt";
+    private static final String encKey = signKey;
+    private static final String encCert = signCert;
 
     /*private static final String signKey = "sm2/go/server-gm-sign-key.pem";
     private static final String signCert = "sm2/go/server-gm-sign-cert.crt";
@@ -44,10 +49,7 @@ public class GoClient {
 
     public static void main(String[] args) throws Exception {
         GoClient client = new GoClient();
-        for (int i = 0; i < 20; i++) {
-            client.reqGoServer();
-            TimeUnit.SECONDS.sleep(10);
-        }
+        client.reqGoServer();
 
     }
 
@@ -64,12 +66,12 @@ public class GoClient {
         /*ks.setKeyEntry("auth", Helper.loadPrivateKey(signKey), new char[0], new X509Certificate[] {
                 Helper.loadCertificate(signCert)
         });*/
-       /* ks.setKeyEntry("sign", Helper.loadPrivateKey(signKey), new char[0], new X509Certificate[] {
+        ks.setKeyEntry("sign", Helper.loadPrivateKey(signKey), new char[0], new X509Certificate[] {
                 Helper.loadCertificate(signCert)
         });
         ks.setKeyEntry("enc", Helper.loadPrivateKey(encKey), new char[0], new X509Certificate[] {
                 Helper.loadCertificate(encCert)
-        });*/
+        });
 
         KeyManagerFactory kmf = KeyManagerFactory.getInstance("SunX509");
         kmf.init(ks, new char[0]);

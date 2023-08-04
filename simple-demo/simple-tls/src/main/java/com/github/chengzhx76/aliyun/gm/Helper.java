@@ -17,6 +17,7 @@ import java.security.spec.InvalidKeySpecException;
 import java.security.spec.PKCS8EncodedKeySpec;
 import java.util.Base64;
 
+import cn.hutool.core.io.FileUtil;
 import org.bouncycastle.jce.provider.BouncyCastleProvider;
 
 /**
@@ -27,13 +28,15 @@ public class Helper {
     public static X509Certificate loadCertificate(String path) throws Exception {
         BouncyCastleProvider bc = new BouncyCastleProvider();
         CertificateFactory cf = CertificateFactory.getInstance("X.509", bc);
-        InputStream is = Helper.class.getClassLoader().getResourceAsStream(path);
+//        InputStream is = Helper.class.getClassLoader().getResourceAsStream(path);
+        InputStream is = FileUtil.getInputStream(path);
         X509Certificate cert = (X509Certificate) cf.generateCertificate(is);
         return cert;
     }
 
     public static PrivateKey loadPrivateKey(String path) throws Exception {
-        InputStream is = Helper.class.getClassLoader().getResourceAsStream(path);
+//        InputStream is = Helper.class.getClassLoader().getResourceAsStream(path);
+        InputStream is = FileUtil.getInputStream(path);
         InputStreamReader inputStreamReader = new InputStreamReader(is);
         BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
         StringBuilder sb = new StringBuilder();

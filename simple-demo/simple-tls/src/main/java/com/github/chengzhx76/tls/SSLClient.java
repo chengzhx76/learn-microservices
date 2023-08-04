@@ -15,8 +15,8 @@ import java.security.KeyStore;
  **/
 public class SSLClient {
 
-    private static final String PRIVATE_FILE = "D:\\idea-workspace\\learn-microservices\\simple-demo\\simple-tls\\src\\main\\resources\\certs\\kclient.keystore";
-    private static final String TRUST_FILE = "D:\\idea-workspace\\learn-microservices\\simple-demo\\simple-tls\\src\\main\\resources\\certs\\tclient.keystore";
+    private static final String PRIVATE_FILE = "D:\\idea-workspace\\learn-microservices\\simple-demo\\simple-tls\\src\\main\\resources\\tls\\kclient.keystore";
+    private static final String TRUST_FILE = "D:\\idea-workspace\\learn-microservices\\simple-demo\\simple-tls\\src\\main\\resources\\tls\\tclient.keystore";
 
     private static final String DEFAULT_HOST = "127.0.0.1";
     private static final int DEFAULT_PORT = 7777;

@@ -154,3 +154,12 @@ https://github.com/guanzhi/GmSSL/issues/1285
 
 ## 国密SSL VPN握手抓包分析
 https://www.jianshu.com/p/5435803d2ae7
+
+## 国密加密SM2生成公私钥对
+https://blog.51cto.com/u_16177403/6806510
+
+## JAVA对GO生成的签名,验证失败
+https://github.com/tjfoc/gmsm/issues/165
+
+## SSL协商过程
+https://www.cnblogs.com/lujiango/p/15936116.html

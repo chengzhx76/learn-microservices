@@ -38,8 +38,8 @@ import java.util.concurrent.TimeUnit;
  **/
 public class HttpClientSSLAliClient {
 
-    private static final String PRIVATE_FILE = "D:\\idea-workspace\\learn-microservices\\simple-demo\\simple-tls\\src\\main\\resources\\certs\\go\\clientKeyStore.p12";
-    private static final String TRUST_FILE = "D:\\idea-workspace\\learn-microservices\\simple-demo\\simple-tls\\src\\main\\resources\\certs\\go\\caKeyStore.jks";
+    private static final String PRIVATE_FILE = "D:\\idea-workspace\\learn-microservices\\simple-demo\\simple-tls\\src\\main\\resources\\tls\\go\\clientKeyStore.p12";
+    private static final String TRUST_FILE = "D:\\idea-workspace\\learn-microservices\\simple-demo\\simple-tls\\src\\main\\resources\\tls\\go\\caKeyStore.jks";
 
     private static final String CLIENT_KEY_STORE_PASSWORD = "111111";
     private static final String CLIENT_TRUST_KEY_STORE_PASSWORD = "111111";

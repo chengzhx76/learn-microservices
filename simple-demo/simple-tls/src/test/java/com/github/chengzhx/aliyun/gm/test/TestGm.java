@@ -50,15 +50,16 @@ public class TestGm {
 //    private static final String encFileKey = "D:/golang/src/learn-microservices-go/gmtls/certs2/server-gm-enc-key.pem";
 //    private static final String encFileCert = "D:/golang/src/learn-microservices-go/gmtls/certs2/server-gm-enc-cert.crt";
 
-    private static final String encFileKey = "D:\\idea-workspace\\learn-microservices\\simple-demo\\simple-tls\\src\\main\\resources\\sm2\\go2\\server-gm-enc-key.pem";
-    private static final String encFileCert = "D:\\idea-workspace\\learn-microservices\\simple-demo\\simple-tls\\src\\main\\resources\\sm2\\go2\\server-gm-enc-cert.crt";
+    private static final String encFileKey = "D:\\idea-workspace\\learn-microservices\\simple-demo\\simple-tls\\src\\main\\resources\\sm2\\go\\server-gm-enc-key.pem";
+    private static final String encFileCert = "D:\\idea-workspace\\learn-microservices\\simple-demo\\simple-tls\\src\\main\\resources\\sm2\\go\\server-gm-enc-cert.crt";
 
 //    private static final String encFileKey = "sm2/go2/server-gm-enc-cert.crt";
 //    private static final String encFileCert = "sm2/go2/server-gm-enc-key.pem";
 
     SecureRandom random = new SecureRandom();
     public static void main(String[] args) throws Exception {
-        new TestGm().pubKeyToHexStrEncrypt();
+//        new TestGm().pubKeyToHexStrEncrypt();
+        new TestGm().encryptAndDecrypt();
     }
 
 
@@ -77,7 +78,7 @@ public class TestGm {
     }
 
 
-    // ===================================================== gmhelper end ==============================================
+    // ===================================================== gmhelper start ==============================================
 
 
     private static final X9ECParameters x9ECParameters = GMNamedCurves.getByName("sm2p256v1");
